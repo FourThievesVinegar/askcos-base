@@ -21,6 +21,8 @@ RUN /opt/conda/bin/conda env update -vv --file /tmp/environment.yml && \
     find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
     /opt/conda/bin/conda clean -afyv
 
+RUN /opt/conda/bin/conda install pip
+
 # Use non-AVX version of tensorflow
 COPY tensorflow-2.0.0a0-cp37-cp37m-linux_x86_64.whl tensorflow-2.0.0a0-cp37-cp37m-linux_x86_64.whl
 RUN pip install tensorflow-2.0.0a0-cp37-cp37m-linux_x86_64.whl
